@@ -1,0 +1,104 @@
+use local
+switched to db local
+show databases
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+use college
+switched to db college
+show databases
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+db.student.insertOne({
+    name: "Arun",
+    age: 21,
+    department: "AIML",
+    marks: 85
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8df053192370a40a0c655')
+}
+db.student.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8df413192370a40a0c656')
+}
+db.student.insertOne({
+  name:"maria",
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8df773192370a40a0c657')
+}
+db.student.insertOne({
+  name:"maria",
+  age:22,
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8dfa43192370a40a0c658')
+}
+db.student.insertOne({
+  name:"maria",
+  age:22,
+  department:"AIML",
+  mark:99
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa8dfe33192370a40a0c659')
+}
+db.student.insertMany([{}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6aa8e0ab3192370a40a0c65a')
+  }
+}
+db.student.insertMany([
+  {name:"jess",age:22,department:"AIML",markL:89},
+  {name:"raja",age:44,department:"AIML",mark:90},
+  {name:"selva",age:21,department:"AIML",mark:88}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6aa8e15a3192370a40a0c65b'),
+    '1': ObjectId('6aa8e15a3192370a40a0c65c'),
+    '2': ObjectId('6aa8e15a3192370a40a0c65d')
+  }
+}
+db
+college
+show collections
+student
+college
+
+
+db.student.findOne({name:"jess"})   - it find the name jess in collection
+
+db.student.findOne()   - it find the one info in the collection
+
+db.student.find()  - It's show all the collections
+
+db.products.find(
+  {price:{$gte:100}}
+)     --- greater than are equal to 
+
+
+db.products.find(
+  {price:{$lte:500}}
+)    -- less than or equal to 
+
+
+
+db.products.find(
+  {price:{$eq:500}}
+)   ---- equal to
+
+
+db.products.find().sort({price:1})   --- acending order
+
+db.products.find().sort({price:-1})   --- dec order
